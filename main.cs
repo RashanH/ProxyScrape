@@ -15,5 +15,10 @@ namespace ProxyScrape
  public void Scrape()
 {
   //scraper
+  //Form1.lstproxies.Items.Clear();
+	//System.Net.HttpWebRequest request = System.Net.HttpWebRequest.Create(Form1.ListBox1.SelectedItem);
+	System.Net.HttpWebResponse response = request.GetResponse;
+	System.IO.StreamReader SiteSource = new System.IO.StreamReader(response.GetResponseStream());
+  
  }
 }
