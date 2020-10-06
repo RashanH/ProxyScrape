@@ -27,5 +27,9 @@ namespace ProxyScrape
 	string portval = null;
 	Regex reg = default(Regex);
 	 
+	 if (Form1.ListBox1.SelectedItem.ToString.Contains("http://www.proxynova.com/proxy-server-list/")) {
+		
+	}
+	 
  }
 }
