@@ -49,6 +49,26 @@ namespace ProxyScrape
 		SplitVar = 2;
 		Port = true;
 	}
+	 MatchCollection Matches = reg.Matches(UseSource);
+	foreach (Match ProxyString in Matches) {
+		string x = ProxyString.Value.Split(">").GetValue(SplitVar);
+		string z = x.Split("<").GetValue(0);
+		if (Port) {
+			string o = ProxyString.Value.Split(">").GetValue(4);
+			string d = o.Split("<").GetValue(0);
+			z = z + ":" + d;
+		}
+		if (useport) {
+			z = z.Replace("\t\t  ", "");
+			z = z + ":" + portval;
+		}
+		if (Information.IsNumeric(z(0))) {
+			Form1.lstproxies.Items.Add(z);
+			Form1.lstproxies.SelectedIndex = 0;
+		}
+	}
+	x:
+	return;
 	 
  }
 }
