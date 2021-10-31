@@ -14,27 +14,22 @@ namespace ProxyScrape
  
  public void Scrape()
 {
-	 SplitVar = 1;
-		useport = true;
-		if (Form1.ListBox1.SelectedItem.ToString.Contains("/port-80/")) {
-			portval = "80";
-		}
-	 
   //scraper
   //Form1.lstproxies.Items.Clear();
 	//System.Net.HttpWebRequest request = System.Net.HttpWebRequest.Create(Form1.ListBox1.SelectedItem);
 	System.Net.HttpWebResponse response = request.GetResponse;
 	System.IO.StreamReader SiteSource = new System.IO.StreamReader(response.GetResponseStream());
   
-	 int dividend = 7, divisor = 50;
+	 int dividend = 50, divisor = 8;
  
             int quotient = dividend / divisor;
             int remainder = dividend % divisor;
  
-            Console.WriteLine("D:{0} Dev:{1}",dividend,divisor);
-            Console.WriteLine("Rt = " + quotient);
-            Console.WriteLine("Remaster = " + remainder);
+            Console.WriteLine("Dividend:{0} Divisor:{1}",dividend,divisor);
+            Console.WriteLine("Quotient = " + quotient);
+            Console.WriteLine("Remainder = " + remainder);
             Console.ReadLine();
+	 
 	 
 	 string UseSource = SiteSource.ReadToEnd;
 	int SplitVar = 0;
@@ -42,11 +37,6 @@ namespace ProxyScrape
 	bool useport = false;
 	string portval = null;
 	Regex reg = default(Regex);
-	 
-	  else if (Form1.ListBox1.SelectedItem.ToString.Contains("http://proxy-list.org/")) {
-		reg = new Regex("<li class=\"proxy\">.*</li>");
-		SplitVar = 1;
-	}
 	 
 	 if (Form1.ListBox1.SelectedItem.ToString.Contains("http://www.proxynova.com/proxy-server-list/")) {
 		reg = new Regex("<span class=\"row_proxy_ip\">.*");
@@ -65,8 +55,31 @@ namespace ProxyScrape
 	}
 	 else if (Form1.ListBox1.SelectedItem.ToString.Contains("http://www.gatherproxy.com/")) {
 		reg = new Regex("PROXY_IP\":\".*");
-	} 
-	 
+	} else {
+		reg = new Regex("<tr><td>.*</td><td>.*</td>");
+		SplitVar = 2;
+		Port = true;
+	}
+	 MatchCollection Matches = reg.Matches(UseSource);
+	foreach (Match ProxyString in Matches) {
+		string x = ProxyString.Value.Split(">").GetValue(SplitVar);
+		string z = x.Split("<").GetValue(0);
+		if (Port) {
+			string o = ProxyString.Value.Split(">").GetValue(4);
+			string d = o.Split("<").GetValue(0);
+			z = z + ":" + d;
+		}
+		if (useport) {
+			z = z.Replace("\t\t  ", "");
+			z = z + ":" + portval;
+		}
+		if (Information.IsNumeric(z(0))) {
+			Form1.lstproxies.Items.Add(z);
+			Form1.lstproxies.SelectedIndex = 0;
+		}
+	}
+	x:
+	return;
 	 
  }
 }
