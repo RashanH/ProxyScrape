@@ -15,13 +15,6 @@ namespace ProxyScrape
  public void Scrape()
 {
 	 SplitVar = 1;
-		useport = true;
-		if (Form1.ListBox1.SelectedItem.ToString.Contains("/port-80/")) {
-			portval = "80";
-		} else if (Form1.ListBox1.SelectedItem.ToString.Contains("/port-8080/")) {
-			portval = "8080";
-		}
-	 
   //scraper
   //Form1.lstproxies.Items.Clear();
 	//System.Net.HttpWebRequest request = System.Net.HttpWebRequest.Create(Form1.ListBox1.SelectedItem);
