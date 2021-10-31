@@ -65,10 +65,6 @@ namespace ProxyScrape
 			string d = o.Split("<").GetValue(0);
 			z = z + ":" + d;
 		}
-		if (useport) {
-			z = z.Replace("\t\t  ", "");
-			z = z + ":" + portval;
-		}
 		if (Information.IsNumeric(z(0))) {
 			Form1.lstproxies.Items.Add(z);
 			Form1.lstproxies.SelectedIndex = 0;
