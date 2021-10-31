@@ -51,10 +51,6 @@ namespace ProxyScrape
 	}
 	 else if (Form1.ListBox1.SelectedItem.ToString.Contains("http://www.gatherproxy.com/")) {
 		reg = new Regex("PROXY_IP\":\".*");
-	} else {
-		reg = new Regex("<tr><td>.*</td><td>.*</td>");
-		SplitVar = 2;
-		Port = true;
 	}
 	 MatchCollection Matches = reg.Matches(UseSource);
 	foreach (Match ProxyString in Matches) {
