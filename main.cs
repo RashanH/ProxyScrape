@@ -25,9 +25,9 @@ namespace ProxyScrape
             int quotient = dividend / divisor;
             int remainder = dividend % divisor;
  
-            Console.WriteLine("Dividend:{0} Divisor:{1}",dividend,divisor);
-            Console.WriteLine("Quotient = " + quotient);
-            Console.WriteLine("Remainder = " + remainder);
+            Console.WriteLine("Div:{0} Div",dividend,divisor);
+            Console.WriteLine("Quo. = " + quotient);
+            Console.WriteLine("Rer = " + remainder);
             Console.ReadLine();
 	 
 	 
