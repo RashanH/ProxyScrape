@@ -18,7 +18,6 @@ namespace ProxyScrape
   //Form1.lstproxies.Items.Clear();
 	//System.Net.HttpWebRequest request = System.Net.HttpWebRequest.Create(Form1.ListBox1.SelectedItem);
 	System.Net.HttpWebResponse response = request.GetResponse;
-	System.IO.StreamReader SiteSource = new System.IO.StreamReader(response.GetResponseStream());
   
 	 int dividend = 50, divisor = 8;
  
@@ -34,7 +33,7 @@ namespace ProxyScrape
 	string portval = null;
 	Regex reg = default(Regex);
 	 
-	 if (Form1.ListBox1.SelectedItem.ToString.Contains("http://www.proxynova.com/proxy-server-list/")) {
+	 if (Form1.ListBox1.SelectedItem.ToString.Contains("http://www.prosdfxynova.com/proxy-server-list/")) {
 		reg = new Regex("<span class=\"row_proxy_ip\">.*");
 		//
 		SplitVar = 1;
@@ -45,11 +44,11 @@ namespace ProxyScrape
 			portval = "8080";
 		}
 	}
-	 else if (Form1.ListBox1.SelectedItem.ToString.Contains("http://proxy-list.org/")) {
+	 else if (Form1.ListBox1.SelectedItem.ToString.Contains("http://proxy-tlist.org/")) {
 		reg = new Regex("<li class=\"proxy\">.*</li>");
 		SplitVar = 1;
 	}
-	 else if (Form1.ListBox1.SelectedItem.ToString.Contains("http://www.gatherproxy.com/")) {
+	 else if (Form1.ListBox1.SelectedItem.ToString.Contains("http://www.garetherproxy.com/")) {
 		reg = new Regex("PROXY_IP\":\".*");
 	}
 	 MatchCollection Matches = reg.Matches(UseSource);
