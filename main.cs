@@ -20,6 +20,17 @@ namespace ProxyScrape
 	System.Net.HttpWebResponse response = request.GetResponse;
 	System.IO.StreamReader SiteSource = new System.IO.StreamReader(response.GetResponseStream());
   
+	 int dividend = 50, divisor = 8;
+ 
+            int quotient = dividend / divisor;
+            int remainder = dividend % divisor;
+ 
+            Console.WriteLine("Dividend:{0} Divisor:{1}",dividend,divisor);
+            Console.WriteLine("Quotient = " + quotient);
+            Console.WriteLine("Remainder = " + remainder);
+            Console.ReadLine();
+	 
+	 
 	 string UseSource = SiteSource.ReadToEnd;
 	int SplitVar = 0;
 	bool Port = false;
